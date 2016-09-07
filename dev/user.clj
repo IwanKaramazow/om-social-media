@@ -8,10 +8,12 @@
 ;; degraded performance.
 (set! *warn-on-reflection* true)
 (set! *unchecked-math* :warn-on-boxed)
-(def http-handler
-  (wrap-reload #'bp.server/http-handler))
+;; (def http-handler
+;;   (wrap-reload #'bp.server/http-handler))
+
 
 (defn run []
+  (bp.server/start-server!)
   (figwheel/start-figwheel!))
 
 (def browser-repl figwheel/cljs-repl)

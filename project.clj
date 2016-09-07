@@ -5,15 +5,25 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
 
   :dependencies [[org.clojure/clojure "1.8.0"]
-                 [org.clojure/clojurescript "1.9.89" :scope "provided"]
+                 [org.clojure/clojurescript "1.9.227" :scope "provided"]
                  [com.cognitect/transit-clj "0.8.285"]
                  [ring "1.4.0"]
                  [ring/ring-defaults "0.2.0"]
                  [bk/ring-gzip "0.1.1"]
                  [ring.middleware.logger "0.5.0"]
-                 [compojure "1.5.0"]
                  [environ "1.0.3"]
-                 [org.omcljs/om "1.0.0-alpha36"]]
+                 [org.omcljs/om "1.0.0-alpha41"]
+                 [bidi "2.0.10"]
+                 [prismatic/plumbing "0.5.3"]
+                 [cheshire "5.6.3"]
+                 [buddy/buddy-sign "1.2.0"]
+                 [org.clojure/core.async "0.2.385"]
+                 [com.taoensso/sente "1.10.0"]
+                 [http-kit "2.2.0"]
+                 [compojure "1.5.1"]
+                 [kibu/pushy "0.3.6"]
+                 [org.clojure/test.check "0.8.2"]
+                 [compassus "0.2.1"]]
 
   :plugins [[lein-cljsbuild "1.1.3"]
             [lein-environ "1.0.3"]]
@@ -81,7 +91,7 @@
              ;; assets and API endpoints can all be accessed on the same host
              ;; and port. If you prefer a separate server process then take this
              ;; out and start the server with `lein run`.
-             :ring-handler user/http-handler
+             ;; :ring-handler user/http-handler
 
              ;; Start an nREPL server into the running figwheel process. We
              ;; don't do this, instead we do the opposite, running figwheel from
@@ -103,8 +113,8 @@
   :doo {:build "test"}
 
   :profiles {:dev
-             {:dependencies [[figwheel "0.5.4-4"]
-                             [figwheel-sidecar "0.5.4-4"]
+             {:dependencies [[figwheel "0.5.7-SNAPSHOT"] ;; "0.5.3-2"
+                             [figwheel-sidecar "0.5.7-SNAPSHOT" ] ;; "0.5.3-2"
                              [com.cemerick/piggieback "0.2.1"]
                              [org.clojure/tools.nrepl "0.2.12"]]
 
